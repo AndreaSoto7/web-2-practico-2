@@ -8,6 +8,12 @@ const app = express()
 const port = 3000
 const bodyParser = require('body-parser');
 const db = require('./models');
+const cors = require('cors');
+
+app.use(cors({
+    origin: ['localhost:5173', 'http://localhost:5173'],
+    optionsSuccessStatus: 200 
+}))
 
 // Para reconocer el body desde un formulario HTML
 app.use(bodyParser.urlencoded({ extended: false }));
